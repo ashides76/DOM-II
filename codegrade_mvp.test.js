@@ -6,12 +6,12 @@ beforeAll(() => {
   require('./src/index')
   server.listen()
 })
-afterAll(() => {
-  server.close()
-})
-afterEach(() => {
-  server.resetHandlers()
-})
+// afterAll(() => {
+//   server.close()
+// })
+// afterEach(() => {
+//   server.resetHandlers()
+// })
 
 describe('just a sanity test', () => {
   test('[1] fun bus heading is in the DOM', () => {

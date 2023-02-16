@@ -20,13 +20,6 @@ navAnchor.forEach(ele => {
 //Image popup.
 
 const images = document.querySelectorAll('img')
-console.log(images)
-
-
-// function mouseOver (ele){
-//     ele.style.transform = "scale(1.2)";
-//     ele.style.trasition = "all 0.3s";
-//   }
 images.forEach(val => val.addEventListener('mouseover', function(){
   val.style.transform = "scale(1.2)"
   val.style.trasition = "all 0.3s";
@@ -39,6 +32,7 @@ images.forEach(val => val.addEventListener('mouseout', function(){
 // footer wheel event
 
 const copyright = document.querySelector('footer p');
+console.log('fire copyright:', copyright)
 copyright.addEventListener('wheel', function() {
   copyright.style.fontSize = '2rem';
 })
@@ -46,18 +40,16 @@ copyright.addEventListener('wheel', function() {
 
 // bttn click
 const formSample = document.querySelector('div .new-form');
-console.log('formSample:', formSample);
 const bttn = document.querySelectorAll('.btn');
+console.log('fire button:', bttn)
 bttn.forEach(ele => {
-  console.log('fire');
   ele.addEventListener('click', function(){
     formSample.classList.remove('off');
   })
 })
-console.log('button:', bttn)
-bttn.addEventListener('click', event => {
-  event.forEach(ele => ele.classList.remove('off'))
-})
+// bttn.addEventListener('click', event => {
+//   event.forEach(ele => ele.target.classList.remove('off'))
+// })
 
 //password focus & blur
 const password = document.querySelector('input[type="password"]');
