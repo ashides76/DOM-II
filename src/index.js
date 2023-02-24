@@ -75,3 +75,63 @@ window.onload = function () {
     }
   })
 }
+
+// 1. load event
+window.onload = function(event) {
+  // console.log(`event ${event.type} was fired!`)
+  const heading = document.querySelector('h1');
+  heading.textContent = 'My Fun Bus!'
+
+// 2. copy event
+
+  window.addEventListener('copy', () => {
+    navigator.clipboard.readText()
+      .then(text => {
+        console.log(text);
+        // heading.textContent += text;
+      })
+      .catch(err => console.log(err))
+  })
+
+  document.body.addEventListener('click', (event) => {
+    event.target.classList.toggle('clickStyle')
+  })
+
+// 3. dblclick event
+  document.body.addEventListener('dblclick', (event) => {
+    event.target.outerHTML = '';
+  })
+
+// 4. Keydown event
+  window.addEventListener('keydown', (event) => {
+  console.log(event);
+  console.log(event.key);
+  console.log(event.type);
+  if (event.key === 'Backspace') {
+    document.body.textContent = ''
+  }
+})
+
+// 5. mousemove event
+  document.body.addEventListener('mousemove', event => {
+    // console.log(event)
+    const {clientX, clientY} = event;
+    // console.log(`Mouse is at clientX: ${clientX} and clientY: ${clientY}`);
+  })
+// 6. mouseenter event
+// 7. mouseleave event
+  const destinations = document.querySelectorAll('.destination')
+  // console.log(destinations)
+  for (let des of destinations) {
+    des.addEventListener('mouseenter', (event) => {
+      // console.log(des);
+      des.style.fontWeight = 'bold';
+    })
+    des.addEventListener('mouseleave', (event) => {
+      setTimeout(() => {
+        des.style.fontWeight = 'initial';
+      }, 1000)
+    })
+  }
+}
+
